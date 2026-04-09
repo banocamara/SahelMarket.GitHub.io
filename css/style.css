@@ -1,0 +1,87 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+.about span
+{
+  padding: 20px;
+  font-weight: 600;
+}
+
+.titre{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.titre span{
+  color: blue;
+}
+
+
+.dispo a{
+   
+  text-decoration: none;
+  color: blue;
+}
+
+.cherche input{
+    border-radius: 10px;
+    border: 2px solid rgb(203, 196, 196);
+}
+
+li i{
+  color: white;
+  background-color: blue;
+}
+.accueil{
+ display: flex;
+ list-style: none;
+ background-color: rgba(88, 88, 225,0.4);
+}
+
+.accueil li {
+ margin: 25px;
+}
+
+.shop{
+  padding-top: 25px;
+  padding-left: 250px;
+  font-size: 28px;
+}
+
+.dispo:hover{
+  color: rgb(43, 226, 58);
+}
+
+.accueil a:hover{
+  color: blue;
+  font-weight: bold;
+}
+
+.accueil a{
+  text-decoration: none;
+}
+.images{
+  display: flex;
+ margin: 35px;
+ margin-top: 5px;
+ 
+}
+
+.big-image{
+width: 480px;
+height: 470px;
+border-radius: 15px;
+margin: 15px;
+}
+
+.small-images img{
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+.images a img:hover{
+
+  border: 1px solid rgba(199, 199, 212, 0.1);
+}
+

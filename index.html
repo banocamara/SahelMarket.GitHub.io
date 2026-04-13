@@ -1,49 +1,128 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SahelMArket</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SahelMarket</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 <body>
+
+<header>
     <nav>
         <div class="about">
-            <span class="titre"><span><i class="fa-solid fa-magnifying-glass-chart"></i></span> S a h e l M a r k e t</i></span>
-            <span class="cherche"><input type="search" placeholder="Rechercher un produit" size="80"> <i class="fa-solid fa-magnifying-glass"></i></span>
-            <span class="dispo"><i class="fa-sharp-duotone fa-solid fa-phone"> <a href="#"> Disponible 24/24</a></i> </span>
-        </div>
-<br>
-        <div class="accueil">
-            <li> <button><i class="fa-solid fa-bars"></i></button> Tous les categories</li> 
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">Promotions</a></li>
-            <li><a href="#">Boutiques</a></li>
-            <li><a href="#">Livraison & Retour</a></li>
-            <li><a href="#">Contact</a></li>
-            <span class="shop"><i class="fa-solid fa-cart-shopping"> MRU</i></span>
-        </div>
-    </nav>
 
-    <menu>
-        <div class="images">
-            <a href=""><img src="images/maison1.jpg" alt="im" class="big-image"></a>   
-            <div class="small-images">
-                <a href=""><img src="images/Bankily_Masrivi_Sedad.jpeg" alt="" width="650" height="145"></a>
-                <a href=""><img src="images/Habit1.jpg" alt="" width="650" height="146"></a>
-                <a href=""><img src="images/money_orange_wave.jpg" alt="" width="345" height="140"></a>
-                <a href=""><img src="images/car1.jpg" alt="" width="290" height="140"></a>   
-            </div> 
-                
+            <div class="titre">
+                <i class="fa-solid fa-store"></i> SahelMarket
+            </div>
+
+            <div class="cherche">
+                <input type="search" placeholder="Rechercher une annonce...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <div class="dispo">
+                <i class="fa-solid fa-phone"></i>
+                <a href="#">Disponible 24/24</a>
+            </div>
+
         </div>
-    </menu>
-    <section>
-        <h2>Categories polulaires</h2>
-        <img src="images/habit3.jpg" alt="habits" width="150" height="150">
-        <img src="images/bankily2.jpg" alt="Monney"width="150" height="150">
+
+        <ul class="accueil">
+            <li><button><i class="fa-solid fa-bars"></i></button></li>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Annonces</a></li>
+            <li><a href="#">Publier</a></li>
+            <li><a href="#">Contact</a></li>
+            <li class="shop"><i class="fa-solid fa-cart-shopping"></i> MRU</li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <!-- Bannière principale -->
+    <section class="hero">
+        <img src="images/banner-market1.jpg" alt="Annonce principale">
     </section>
+
+    <!-- Section annonces -->
+    <section class="annonces">
+        <h2>Annonces Populaires</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <img src="images/habit1.jpg" alt="Habits">
+                <h3>Habits modernes</h3>
+                <p>500 MRU</p>
+                <button>Voir détail</button>
+            </div>
+
+            <div class="card">
+                <img src="images/bankily2.jpg" alt="money">
+                <h3>Transfert d'argent avec Bankily/Masrivi</h3>
+                <p>8 000 MRU</p>
+                <button>Voir détail</button>
+            </div>
+
+            <div class="card">
+                <img src="images/car1.jpg" alt="voiture">
+                <h3>Voitures</h3>
+                <p>400 000 MRU</p>
+                <button>Voir détail</button>
+            </div>
+
+            <div class="card">
+                <img src="images/money_orange_wave.jpg" alt="money">
+                <h3>Transfert d'argent avec Wave</h3>
+                <p>___ MRU</p>
+                <button>Voir détail</button>
+            </div>
+
+            <div class="card">
+                <img src="images/maison1.jpg" alt="Téléphone">
+                <h3>Maison</h3>
+                <p>___MRU</p>
+                <button>Voir détail</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulaire publication -->
+    <section class="publier">
+        <h2>Publier une annonce</h2>
+
+        <form>
+            <input type="text" placeholder="Titre de l'annonce" required>
+
+            <textarea placeholder="Description" required></textarea>
+
+            <input type="number" placeholder="Prix" required>
+
+            <select required>
+                <option value="">Choisir une catégorie</option>
+                <option>Voiture</option>
+                <option>Maison</option>
+                <option>Téléphone</option>
+                <option>Emploi</option>
+                <option>Location</option>
+            </select>
+
+            <button type="submit">Publier</button>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 SahelMarket - Tous droits réservés</p>
+</footer>
+
 </body>
 </html>

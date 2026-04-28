@@ -10,6 +10,8 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+<link rel="icon" href="images/logo.png">
+
 </head>
 <body>
 
@@ -17,6 +19,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     <nav>
 
         <div class="about">
+
             <div class="titre">
                 <i class="fa-solid fa-store"></i> SahelMarket
             </div>
@@ -30,6 +33,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
                 <i class="fa-solid fa-phone"></i>
                 <a href="#">Disponible 24/24</a>
             </div>
+
         </div>
 
         <!-- MENU MOBILE -->
@@ -42,10 +46,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         <!-- MENU -->
         <ul class="accueil">
             <li><a href="#">Accueil</a></li>
-            <li><a href="#">Annonces</a></li>
-            <li><a href="#">Publier</a></li>
-            <li><a href="#">Contact</a></li>
-            <li class="shop"><i class="fa-solid fa-cart-shopping"></i> MRU</li>
+            <li><a href="#annonces">Annonces</a></li>
+            <li><a href="#publier">Publier</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="shop">
+                <i class="fa-solid fa-cart-shopping"></i> MRU
+            </li>
         </ul>
 
     </nav>
@@ -55,88 +61,169 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
     <!-- HERO -->
     <section class="hero">
-        <img src="images/banner-market1.png" alt="">
+
+        <img src="images/banner-market1.png" alt="Marché SahelMarket">
+
         <div class="hero-text">
             <h1>Achetez et vendez facilement</h1>
             <p>Voitures, maisons, téléphones et plus</p>
         </div>
+
     </section>
 
     <!-- ANNONCES -->
-    <section class="annonces">
+    <section class="annonces" id="annonces">
+
         <h2>Annonces Populaires</h2>
 
         <div class="cards">
 
             <div class="card">
+
                 <span class="badge">Habits</span>
-                <img src="images/Habit1.jpg">
+
+                <img src="images/Habit1.jpg" alt="Habit moderne">
+
                 <h3>Habits modernes</h3>
+
                 <p>500 MRU</p>
+
                 <button>Voir détail</button>
+
             </div>
 
             <div class="card">
+
                 <span class="badge">Argent</span>
-                <img src="images/bankily2.jpg">
+
+                <img src="images/bankily2.jpg" alt="Transfert Bankily">
+
                 <h3>Transfert Bankily</h3>
+
                 <p>__ MRU</p>
+
                 <button>Voir détail</button>
+
             </div>
 
             <div class="card">
+
                 <span class="badge">Voiture</span>
-                <img src="images/car1.jpg">
+
+                <img src="images/car1.jpg" alt="Voiture moderne">
+
                 <h3>Voitures</h3>
-                <p>__MRU</p>
+
+                <p>__ MRU</p>
+
                 <button>Voir détail</button>
+
             </div>
 
             <div class="card">
+
                 <span class="badge">Mobile</span>
-                <img src="images/money_orange_wave.jpg">
+
+                <img src="images/money_orange_wave.jpg" alt="Transfert Wave">
+
                 <h3>Transfert Wave</h3>
+
                 <p>___ MRU</p>
+
                 <button>Voir détail</button>
+
             </div>
 
             <div class="card">
+
                 <span class="badge">Maison</span>
-                <img src="images/maison1.jpg">
+
+                <img src="images/maison1.jpg" alt="Maison moderne">
+
                 <h3>Maison</h3>
+
                 <p>___ MRU</p>
+
                 <button>Voir détail</button>
+
             </div>
 
         </div>
+
     </section>
 
     <!-- FORMULAIRE -->
-    <section class="publier">
+    <section class="publier" id="publier">
+
         <h2>Publier une annonce</h2>
 
         <form>
-            <input type="text" placeholder="Titre de l'annonce" required>
-            <textarea placeholder="Description" required></textarea>
-            <input type="number" placeholder="Prix" required>
+
+            <input type="text"
+            placeholder="Titre de l'annonce"
+            required>
+
+            <textarea
+            placeholder="Description"
+            required></textarea>
+
+            <input type="number"
+            placeholder="Prix"
+            required>
+
+            <input type="tel"
+            placeholder="Téléphone"
+            required>
+
+            <input type="text"
+            placeholder="Ville"
+            required>
 
             <select required>
-                <option value="">Choisir une catégorie</option>
+
+                <option value="">
+                    Choisir une catégorie
+                </option>
+
                 <option>Voiture</option>
                 <option>Maison</option>
                 <option>Téléphone</option>
                 <option>Emploi</option>
                 <option>Location</option>
+
             </select>
 
-            <button type="submit">Publier</button>
+            <input type="file" required>
+
+            <button type="submit">
+                Publier
+            </button>
+
         </form>
+
+    </section>
+
+    <!-- A PROPOS -->
+    <section class="apropos">
+
+        <h2>À propos</h2>
+
+        <p>
+            SahelMarket est une plateforme simple
+            permettant d’acheter et vendre
+            facilement en ligne.
+        </p>
+
     </section>
 
 </main>
 
-<footer>
-    <p>&copy; 2026 SahelMarket - Tous droits réservés</p>
+<footer id="contact">
+
+    <p>
+        &copy; 2026 SahelMarket - Tous droits réservés
+    </p>
+
 </footer>
 
 </body>

@@ -49,4 +49,4 @@ Pour cloner et lancer ce projet sur votre machine locale (via XAMPP/WAMP) :
 
 1. **Cloner le dépôt :**
    ```bash
-   git clone [https://github.com/votre-utilisateur/SahelMarket.git](https://github.com/votre-utilisateur/SahelMarket.git)
+   git clone https://github.com/banocamara/SahelMarket.GitHub.io.git

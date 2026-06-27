@@ -1,0 +1,26 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Dossiers temporaires
+node_modules/
+vendor/
+
+# Configurations sensibles
+.env
+
+# Fichiers locaux XAMPP
+config/database_local.php
+
+# Logs
+*.log
+
+# Cache
+.cache/
+
+# VS Code
+.vscode/
+
+# Sauvegardes
+*.zip
+*.rar

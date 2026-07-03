@@ -6,6 +6,14 @@ Ce projet a été développé de manière native en **PHP** et **MySQL** dans le
 
 ---
 
+## 📸 Aperçu de l'application
+
+### Page d'accueil
+![Page d'accueil de SahelMarket](images/accueil.png)
+
+### Panel de connexion
+![Page de connexion](images/connexion.png)
+
 ## 🚀 Fonctionnalités Clés
 
 ### 👤 Espace Utilisateur & Client

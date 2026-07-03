@@ -9,12 +9,10 @@ Ce projet a été développé de manière native en **PHP** et **MySQL** dans le
 ## 📸 Aperçu de l'application
 
 ### Page d'accueil
-![Page d'accueil de SahelMarket](images/accueil.png)
+<img src="images/accueil.png" alt="Page d'accueil" width="600">
 
 ### Panel de connexion
-![Page de connexion](images/connexion.png)
-
-<img src="images/accueil.png" alt="Page d'accueil" width="600">
+<img src="images/connexion.png" alt="Page de connexion" width="600">
 
 ## 🚀 Fonctionnalités Clés
 

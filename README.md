@@ -14,7 +14,7 @@ Ce projet a été développé de manière native en **PHP** et **MySQL** dans le
 ### Panel de connexion
 ![Page de connexion](images/connexion.png)
 
-<img src="img/accueil.png" alt="Page d'accueil" width="600">
+<img src="images/accueil.png" alt="Page d'accueil" width="600">
 
 ## 🚀 Fonctionnalités Clés
 

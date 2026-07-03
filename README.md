@@ -6,7 +6,6 @@ Ce projet a été développé de manière native en **PHP** et **MySQL** dans le
 
 ---
 
-
 ## 📸 Aperçu de l'application
 
 ### Page d'accueil

@@ -24,4 +24,13 @@ function verifierAdmin() {
         exit();
     }
 }
+
+// NOUVELLE FONCTION : Vérifie la robustesse du mot de passe à l'inscription
+function isPasswordSecure($password) {
+    // Minimum 8 caractères, au moins une majuscule, une minuscule et un chiffre
+    return strlen($password) >= 8 
+        && preg_match('/[A-Z]/', $password) 
+        && preg_match('/[a-z]/', $password) 
+        && preg_match('/[0-9]/', $password);
+}
 ?>

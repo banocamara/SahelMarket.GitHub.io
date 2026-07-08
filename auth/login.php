@@ -10,7 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($email) || empty($password)) {
         $erreur = "Veuillez remplir tous les champs.";
-    } else {
+    } 
+    // On appelle notre fonction ici !
+    else if (!isPasswordSecure($password)) {
+        $erreur = "Le mot de passe doit contenir au moins 8 caractères, incluant une majuscule, une minuscule et un chiffre.";
+    }
+    else {
         $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE email = ?");
         $stmt->execute([$email]);
         $utilisateur = $stmt->fetch();

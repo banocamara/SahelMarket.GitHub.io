@@ -18,7 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $erreur = "Format de l'adresse email invalide.";
     } elseif ($password !== $password_conf) {
         $erreur = "Les deux mots de passe ne correspondent pas.";
-    } else {
+    }
+     // ON INSÈRE LA VÉRIFICATION DE ROBUSTESSE ICI
+    else if (!isPasswordSecure($password)) {
+        $erreur = "Sécurité insuffisante : le mot de passe doit faire au moins 8 caractères, contenir une majuscule, une minuscule et au moins un chiffre.";
+    } 
+    else {
         // Vérification si l'email existe déjà
         $stmt = $pdo->prepare("SELECT id FROM utilisateurs WHERE email = ?");
         $stmt->execute([$email]);

@@ -10,26 +10,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($email) || empty($password)) {
         $erreur = "Veuillez remplir tous les champs.";
-    } 
-    // On appelle notre fonction ici !
-    else if (!isPasswordSecure($password)) {
-        $erreur = "Le mot de passe doit contenir au moins 8 caractères, incluant une majuscule, une minuscule et un chiffre.";
-    }
-    else {
+    } else {
+        // Préparation de la requête pour bloquer les injections SQL
         $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE email = ?");
         $stmt->execute([$email]);
         $utilisateur = $stmt->fetch();
 
+        // Analyse du mot de passe haché
         if ($utilisateur && password_verify($password, $utilisateur['mot_de_passe'])) {
-            // Initialisation des variables de session
+            
+            // SÉCURITÉ : On enregistre le succès dans le journal de logs
+            enregistrerLog($email, "SUCCES");
+
+            // Initialisation de la session utilisateur
             $_SESSION['utilisateur_id'] = $utilisateur['id'];
             $_SESSION['nom'] = $utilisateur['nom'];
             $_SESSION['role'] = $utilisateur['role'];
 
-            // Redirection vers le tableau de bord de l'utilisateur
+            // Redirection vers le tableau de bord
             header("Location: ../dashboard.php");
             exit();
         } else {
+            
+            // SÉCURITÉ : On journalise l'échec pour surveiller d'éventuelles attaques par force brute
+            enregistrerLog($email, "ECHEC - Identifiants incorrects");
+
+            // Message d'erreur générique volontairement imprécis (bonne pratique OWASP)
             $erreur = "Identifiants incorrects.";
         }
     }

@@ -5,6 +5,12 @@ require_once '../includes/fonctions.php';
 $erreur = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // SÉCURITÉ : Vérification du jeton CSRF
+    $tokenSoumis = $_POST['csrf_token'] ?? '';
+    if (!verifierCsrfToken($tokenSoumis)) {
+        enregistrerLog($_POST['email'] ?? 'INCONNU', "ECHEC - Attaque CSRF suspectée");
+        die("Erreur de sécurité : Jeton CSRF invalide ou expiré.");
+    }
     $email = secure($_POST['email']);
     $password = secure($_POST['mot_de_passe']);
 
@@ -54,8 +60,13 @@ require_once '../includes/navbar.php';
         <?php endif; ?>
 
         <form action="login.php" method="POST">
+            <!-- Champ caché CSRF -->
+            <input type="hidden" name="csrf_token" value="<?= genererCsrfToken(); ?>">
+            <!-- Champ email -->
             <input type="email" name="email" placeholder="Adresse Email" required>
+            <!-- Champ mot de passe -->
             <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
+            <!-- Bouton de connexion -->
             <button type="submit">Se connecter</button>
         </form>
         <p style="margin-top: 15px;">Pas encore de compte ? <a href="register.php">Inscrivez-vous ici</a></p>

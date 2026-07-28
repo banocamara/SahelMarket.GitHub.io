@@ -73,4 +73,27 @@ function enregistrerLog($email, $statut) {
     // Écrit la ligne à la suite du fichier existant (FILE_APPEND) de manière sécurisée
     file_put_contents($cheminFichier, $ligne, FILE_APPEND);
 }
+/**
+ * Génère un jeton CSRF aléatoire sécurisé et le stocke en session.
+ * @return string Le jeton généré.
+ */
+function genererCsrfToken() {
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+    return $_SESSION['csrf_token'];
+}
+
+/**
+ * Vérifie si le jeton CSRF soumis correspond à celui en session.
+ * @param string $token Le jeton envoyé par le formulaire.
+ * @return bool True si valide, False sinon.
+ */
+function verifierCsrfToken($token) {
+    if (isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token)) {
+        return true;
+    }
+    return false;
+}
+
 ?>

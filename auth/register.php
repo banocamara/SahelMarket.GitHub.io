@@ -6,6 +6,12 @@ $erreur = "";
 $succes = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // SÉCURITÉ : Vérification du jeton CSRF
+    $tokenSoumis = $_POST['csrf_token'] ?? '';
+    if (!verifierCsrfToken($tokenSoumis)) {
+        enregistrerLog($_POST['email'] ?? 'INCONNU', "ECHEC - Attaque CSRF suspectée");
+        die("Erreur de sécurité : Jeton CSRF invalide ou expiré.");
+    }
     $nom = secure($_POST['nom']);
     $email = secure($_POST['email']);
     $telephone = secure($_POST['telephone']);
@@ -61,6 +67,7 @@ require_once '../includes/navbar.php';
         <?php endif; ?>
 
         <form action="register.php" method="POST">
+            <input type="hidden" name="csrf_token" value="<?= genererCsrfToken(); ?>">
             <input type="text" name="nom" placeholder="Nom complet" required>
             <input type="email" name="email" placeholder="Adresse Email" required>
             <input type="text" name="telephone" placeholder="Numéro de Téléphone" required>

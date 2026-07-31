@@ -1,0 +1,62 @@
+# Version de la spécification Docker Compose
+version: '3.8'
+
+services:
+  # ==========================================
+  # SERVICE 1 : SERVEUR WEB (PHP 8.2 + APACHE)
+  # ==========================================
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sahelmarket_web
+    restart: always
+    ports:
+      # Mappe le port 8080 de ta machine hôte vers le port 80 du conteneur Docker
+      - "8080:80"
+    volumes:
+      # Synchronise le code source local avec le dossier web du conteneur
+      - .:/var/www/html
+    environment:
+      - DB_HOST=db
+      - DB_NAME=sahelmarket
+      - DB_USER=sahel_user
+      - DB_PASSWORD=sahel_password_secure
+    depends_on:
+      - db
+    networks:
+      - sahelmarket_net
+
+  # ==========================================
+  # SERVICE 2 : BASE DE DONNÉES (MYSQL 8.0)
+  # ==========================================
+  db:
+    image: mysql:8.0
+    container_name: sahelmarket_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password_super_secure
+      MYSQL_DATABASE: sahelmarket
+      MYSQL_USER: sahel_user
+      MYSQL_PASSWORD: sahel_password_secure
+    ports:
+      # Expose MySQL sur le port 33066 pour éviter les conflits avec un MySQL local
+      - "33066:3306"
+    volumes:
+      # Persistance des données MySQL sur le disque dur
+      - db_data:/var/lib/mysql
+      # Script d'initialisation automatique au premier démarrage
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+    networks:
+      - sahelmarket_net
+
+# ==========================================
+# VOLUMES & RÉSEAUX DOCKER PERSISTANTS
+# ==========================================
+volumes:
+  db_data:
+    driver: local
+
+networks:
+  sahelmarket_net:
+    driver: bridge

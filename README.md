@@ -42,6 +42,12 @@ La sécurité a été placée au centre du développement de cette plateforme :
 
 ---
 
+## 🐳 Déploiement DevOps & Containerisation (Docker)
+Le projet est entièrement prêt pour la production grâce à un environnement multi-conteneurs orchestré par Docker Compose.
+**Architecture des Services (docker-compose.yml)**
+*Service Web (sahelmarket_web) : Serveur Web Apache avec PHP 8.2 et extension pdo_mysql.
+*Service Database (sahelmarket_db) : Serveur de base de données MySQL 8.0 avec volume de données persistant (db_data) et initialisation automatique (database.sql).
+---
 ## 🛠️ Technologies Utilisées
 
 * **Backend :** PHP 8 (Architecture modulaire et procédurale, gestion native des sessions et cookies)
@@ -58,3 +64,15 @@ Pour cloner et lancer ce projet sur votre machine locale (via XAMPP/WAMP) :
 1. **Cloner le dépôt :**
    ```bash
    git clone https://github.com/banocamara/SahelMarket.GitHub.io.git
+
+2. **Démarrer les conteneurs Docker :**
+   ```bash
+   docker compose up -d --build
+
+3. **Accéder à l'application dans le navigateur :**
+   * Application Web : http://localhost:8080
+   * Port externe MySQL : 33066
+
+4. Arrêter l'environnement Docker :
+   ```bash
+   docker compose down
